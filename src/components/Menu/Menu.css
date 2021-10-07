@@ -1,0 +1,19 @@
+
+
+
+.menu{
+
+    display: flex;
+    height: 589px;
+
+}
+
+.logo{
+
+    width: 450px;
+    height: 500px;
+    margin-bottom: 69px;
+    margin-left: 69px;    
+    margin-top: 21px;
+    margin-right: 13.5px;
+}

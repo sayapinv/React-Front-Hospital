@@ -8,108 +8,10 @@ body{
 
 }
 
-.main{
+.sample{
 
     width: 990px;
     height: 707px;
     background: rgba(197, 233, 255, 0.72);
 
-}
-
-.head{
-
-    width: 100%;
-    height: 118px;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    background: #C5E9FF;
-    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
-
-}
-
-.menu{
-    display: flex;
-    height: 589px;
-}
-
-.minilogo{
-
-    width: 106.22px;
-    height: 84px;
-    left: 35.41px;
-    margin-right: 66.38px;
-    margin-left: 35.41px;
-    margin-top: 15px;
-    margin-bottom: 18px;
-
-}
-
-.minilogo img{
-
-    width: 100%;
-    height: 100%;
-
-}
-
-.headname{
-
-    width: 300px;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-
-}
-
-.headname p{
-
-    margin: 0;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 36px;
-    line-height: 42px;
-
-}
-
-.logo{
-
-    width: 450px;
-    height: 500px;
-    margin-bottom: 69px;
-    margin-left: 69px;    
-    margin-top: 21px;
-    margin-right: 13.5px;
-}
-
-.registration{
-
-    background-color: white;
-    width: 400.5px;
-    height: 453px;
-    margin-top: 41px;
-    margin-right: 56px;
-    margin-bottom: 96px;
-
-
-    
-}
-
-.headreg{
-    border: 1px solid;
-    width: 273px;
-    height: 42px;
-}
-
-.log{
-    border: 1px solid;
-}
-
-.pass{
-    border: 1px solid;
-}
-
-.foot{
-    border: 1px solid;
 }

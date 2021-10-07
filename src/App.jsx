@@ -1,46 +1,39 @@
 import './App.css';
-import minilogo from './image/minilogo.svg'
-import logo from './image/logo.svg'
+import Login from './components/Login';
+import Registration from './components/Registration';
 
-function App() {
+import { useState } from 'react';
+
+import { 
+  Switch, 
+  Route, 
+  Redirect,
+  Link
+} from 'react-router-dom';
+
+
+const App = () => {
+
+
+
+
+
   return (
+    
+    <div className="sample">
 
-    <div className="main">
-      <div className="head">
-        <div className="minilogo">
-          <img src={minilogo} alt="nologo" />
-        </div>
-        <div className="headname">
-          <p>Войти в систему</p>
-        </div>
-      </div>
-      <div className="menu">
+      <Switch>
+        <Route path="/login">
+          <Login/>
+          <Link to="/registration">to Registration</Link>
+        </Route>
+        <Route path="/registration">
+          <Registration/>
+          <Link to="/login">to Login</Link>
+        </Route>
+        <Redirect from="/" to="/login"/>
+      </Switch>
 
-        <img className="logo" src={logo} alt="nologo" />
-
-
-        <div className="registration">
-
-
-          <div className="headreg">
-            <p>Войти в систему</p>
-          </div>
-          <div className="log">
-            <p>Login:</p>
-            <input type="text" />
-          </div>
-          <div className="pass">
-            <p>Password:</p>
-            < input type="password" />
-          </div>
-          <div className="foot">
-            <button>Войти</button>
-            <p>Зарегистрироваться</p>
-          </div>
-
-
-        </div>
-      </div>
     </div>
 
   );

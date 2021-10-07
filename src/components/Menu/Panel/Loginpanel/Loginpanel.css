@@ -1,0 +1,195 @@
+.registration_log{
+
+    background-color: white;
+    width: 400.5px;
+    height: 453px;
+    margin-top: 41px;
+    margin-right: 56px;
+    margin-bottom: 96px;
+
+}
+
+.headreg_log{
+
+
+    width: 273px;
+    height: 42px;
+    margin-top: 40px;
+    margin-left: 63.5px;
+    margin-right: 64px;
+
+}
+
+.headreg_log p{
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 42px;
+    margin: 0;
+}
+
+.log_log{
+
+    width: 321px;
+    height: 69px;
+    margin-top: 40px;
+    margin-left: 42.5px;
+    margin-right: 37px;
+
+}
+
+.log_log p{
+
+    margin: 0;
+    width: 48px;
+    height: 21px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+
+}
+
+.log_log input{
+
+    margin-top: 8px;
+    width: 321px;
+    height: 40px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+
+}
+
+.pass_log{
+
+    width: 321px;
+    height: 69px;
+    margin-top: 18px;
+    margin-left: 42.5px;
+    margin-right: 37px;
+}
+
+.pass_log p{
+
+    margin: 0;
+    width: 48px;
+    height: 21px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+
+}
+
+.pass_log input{
+    
+    margin-top: 8px;
+    width: 321px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+    
+
+}
+
+.btn_reg_log{
+
+    width: 149px;
+    height: 40px;
+    margin-left: 214.5px;
+    margin-right: 37px;
+    margin-top: 40px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+
+}
+
+.reg_text_log{
+
+    width: 173px;
+    height: 21px;
+
+    margin-top: 18px;
+    margin-left: 190.5px;
+    margin-right: 37px;
+
+    display: flex;
+    justify-content: flex-end;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+
+}
+
+.log_log input::placeholder{
+
+    width: 44px;
+    height: 21px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+
+    padding-left: 21px;
+    padding-top: 10px;
+    padding-bottom: 9px;
+    padding-right: 256;
+
+}
+
+.pass_log input::placeholder{
+
+    width: 79px;
+    height: 21px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+
+    padding-left: 21px;
+    padding-top: 10px;
+    padding-bottom: 9px;
+    padding-right: 221px;
+}
+
+input:focus-visible{
+
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+input{
+
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 18px;
+    font-weight: 300;
+
+}
