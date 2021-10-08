@@ -1,8 +1,7 @@
 import './App.css';
 import Login from './components/Login';
 import Registration from './components/Registration';
-
-import { useState } from 'react';
+import Main from './components/Main';
 
 import { 
   Switch, 
@@ -21,19 +20,13 @@ const App = () => {
   return (
     
     <div className="sample">
-
       <Switch>
-        <Route path="/login">
-          <Login/>
-          <Link to="/registration">to Registration</Link>
-        </Route>
-        <Route path="/registration">
-          <Registration/>
-          <Link to="/login">to Login</Link>
-        </Route>
+        <Route path="/login" component={Login}/>
+        <Route path="/registration" component={Registration}/>
+        <Route path="/main" component={Main}/>
         <Redirect from="/" to="/login"/>
       </Switch>
-
+      <Link to="/main">to main</Link>
     </div>
 
   );

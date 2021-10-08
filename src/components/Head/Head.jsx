@@ -15,7 +15,7 @@ const Head = (props) => {
                 <img src={minilogo} alt="nologo" />
             </div>
             <div className="headname">
-                { props.name === 'login' ? <p>Войти в систему</p> : <p>Зарегистрироваться в системе</p>}
+                { props.value ? <p>Войти в систему</p> : <p>Зарегистрироваться в системе</p>}
             </div>
             
         </div>

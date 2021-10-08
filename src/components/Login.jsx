@@ -10,8 +10,8 @@ const Login = () => {
     
     return(
         <>
-        <Head name={'login'} />
-        <Menu name={'login'}/>
+        <Head value={true} />
+        <Menu value={true}/>
         </>
     )
     

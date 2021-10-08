@@ -10,14 +10,11 @@ import RegistrationPanel from './Panel/Registrationpanel/RegistrationPanel';
 
 const Menu = (props) => {
 
-    
-
-    
     return(
 
         <div className="menu">
             <img className="logo" src={logo} alt="nologo" />
-            {props.name === 'login'? <LoginPanel/> : <RegistrationPanel/> }
+            {props.value ? <LoginPanel/> : <RegistrationPanel/> }
         </div>
     )
     

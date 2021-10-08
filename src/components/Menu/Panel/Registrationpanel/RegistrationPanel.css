@@ -91,13 +91,12 @@
 
 .repeatpass{
 
-    border: 1px solid;
     width: 321px;
     height: 69px;
 
-    margin: 8px;
+    margin-top: 8px;
     margin-left: 43.5px;
-    margin-left: 36px;
+    margin-right: 36px;
     
 }
 
@@ -119,11 +118,13 @@
 
     width: 321px;
     height: 40px;
+    margin-top: 8px;
+
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     border-radius: 4px;
-    
+
 }
 
 .pass input{
@@ -141,11 +142,12 @@
 
 .btn_reg{
 
-    width: 149px;
+    width: 195px;
     height: 40px;
-    margin-left: 214.5px;
-    margin-right: 37px;
-    margin-top: 40px;
+
+    margin-top: 15px;
+    margin-right: 36px;
+    margin-left: 169.5px;
 
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -158,25 +160,89 @@
     font-size: 18px;
     line-height: 21px;
 
+
+    color: rgba(0, 0, 0, 0.8);
+
 }
 
-.reg_text{
+.btn_reg:hover{
 
-    width: 173px;
-    height: 21px;
+    width: 195px;
+    height: 40px;
 
-    margin-top: 18px;
-    margin-left: 190.5px;
-    margin-right: 37px;
+    margin-top: 15px;
+    margin-right: 36px;
+    margin-left: 169.5px;
 
-    display: flex;
-    justify-content: flex-end;
+    background: #f7f7f7;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
 
     font-family: Roboto;
     font-style: normal;
     font-weight: 300;
     font-size: 18px;
     line-height: 21px;
+
+
+    color: rgba(0, 0, 0, 0.8);
+
+}
+
+.btn_reg:active{
+
+    width: 195px;
+    height: 40px;
+
+    margin-top: 15px;
+    margin-right: 36px;
+    margin-left: 169.5px;
+
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+
+
+    color: rgba(0, 0, 0, 0.8);
+
+}
+
+
+
+
+
+.link_reg{
+
+    text-decoration: none;
+    
+}
+
+.reg_text{ 
+
+    width: 136px;
+    height: 21px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px;
+
+    margin-top: 8px;
+    margin-left: 227.5px;
+    margin-bottom: 24px;
+    margin-right: 37px;
+    color: black;
+
+
 
 }
 
@@ -190,6 +256,8 @@
     font-weight: 300;
     font-size: 18px;
     line-height: 21px;
+
+    color: rgba(0, 0, 0, 0.2);
 
     padding-left: 21px;
     padding-top: 10px;
@@ -208,6 +276,29 @@
     font-weight: 300;
     font-size: 18px;
     line-height: 21px;
+
+    color: rgba(0, 0, 0, 0.2);
+
+    padding-left: 21px;
+    padding-top: 10px;
+    padding-bottom: 9px;
+    padding-right: 221px;
+}
+
+.repeatpass input::placeholder{
+
+    width: 79px;
+    height: 21px;
+    left: 597px;
+    top: 473px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+
+    color: rgba(0, 0, 0, 0.2);
 
     padding-left: 21px;
     padding-top: 10px;

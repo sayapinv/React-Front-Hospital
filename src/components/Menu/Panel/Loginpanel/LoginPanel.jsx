@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Loginpanel.css'
 
 
@@ -36,7 +37,7 @@ const LoginPanel = () => {
                     </div>
                     <button className="btn_reg_log" >Войти</button>
                 </form>
-                <p className="reg_text_log">Зарегистрироваться</p>
+                <Link className="link" to="/registration"><p className="reg_text_log">Зарегистрироваться</p></Link>
             </div>
         
     )
