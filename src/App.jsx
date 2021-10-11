@@ -13,20 +13,20 @@ import {
 
 const App = () => {
 
-
-
+  
+  
 
 
   return (
     
     <div className="sample">
+ 
       <Switch>
         <Route path="/login" component={Login}/>
         <Route path="/registration" component={Registration}/>
         <Route path="/main" component={Main}/>
         <Redirect from="/" to="/login"/>
       </Switch>
-      <Link to="/main">to main</Link>
     </div>
 
   );

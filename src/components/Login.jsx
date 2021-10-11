@@ -10,7 +10,7 @@ const Login = () => {
     
     return(
         <>
-        <Head value={true} />
+        <Head value={"Войти в систему"} />
         <Menu value={true}/>
         </>
     )

@@ -145,7 +145,6 @@
     width: 195px;
     height: 40px;
 
-    margin-top: 15px;
     margin-right: 36px;
     margin-left: 169.5px;
 
@@ -170,7 +169,6 @@
     width: 195px;
     height: 40px;
 
-    margin-top: 15px;
     margin-right: 36px;
     margin-left: 169.5px;
 
@@ -195,7 +193,6 @@
     width: 195px;
     height: 40px;
 
-    margin-top: 15px;
     margin-right: 36px;
     margin-left: 169.5px;
 
@@ -320,5 +317,21 @@ input{
     font-style: normal;
     font-size: 18px;
     font-weight: 300;
+
+}
+
+.errortext{
+
+    color: red;
+    font-size: 14px;
+    margin: 0;
+
+}
+.error{
+
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }

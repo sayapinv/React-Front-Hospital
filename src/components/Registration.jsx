@@ -11,7 +11,7 @@ const Registration = () => {
     
     return(
         <>
-        <Head value={false}/>
+        <Head value={'Зарегистрироваться в системе'}/>
         <Menu value={false}/>
         </>
     )

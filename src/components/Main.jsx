@@ -1,4 +1,7 @@
 import React from 'react';
+import Head from './Head/Head';
+import Table from './Table/Table';
+import Filter from './Filter/Filter';
 
 
 
@@ -8,8 +11,11 @@ import React from 'react';
 const Main = () => {
     
     return(
-
-        <h1>Главная</h1>
+        <>
+        <Head value="Приёмы"/>
+        <Filter/>
+        <Table/>
+        </>
         
     )
     
