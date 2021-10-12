@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from './Head/Head';
 import Table from './Table/Table';
-import Filter from './Filter/Filter';
+import Create from './Create/Create';
 
 
 
@@ -13,7 +13,7 @@ const Main = () => {
     return(
         <>
         <Head value="Приёмы"/>
-        <Filter/>
+        <Create/>
         <Table/>
         </>
         

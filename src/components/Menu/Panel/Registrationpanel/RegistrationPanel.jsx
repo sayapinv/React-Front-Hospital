@@ -16,21 +16,21 @@ const RegistrationPanel = () => {
     
     let history = useHistory();
 
-    
-    const createAccount = ( e, login , pass , rep) => { //проверка на правильность заполнения полей
+    const createAccount = ( e, login , pass , rep) => {
 
-        const addNewAccount = async (login,pass) => {
+        const addNewAccount = async (login,password) => {
     
             
             await axios.post('http://localhost:8000/createAccount',{
 
                 login,
-                pass
+                password
                 
             }).then(res => {
 
-                history.push('/main')
-                
+                console.log(res.data)
+
+                // history.push('/main')
             })
             
             
@@ -114,7 +114,7 @@ const RegistrationPanel = () => {
                         <input type="password" value={ userpassrep } placeholder = "Password" onChange={(e) => setUserpassrep(e.target.value)}/>
                     </div>
                     <div className="error"><p className="errortext">{errortext}</p></div>
-                    <button className = "btn_reg" onClick={(e) => createAccount( e, username, userpass , userpassrep )}>Зарегистрироваться</button>
+                    <button className = "btn_reg" value={"click"} onClick={(e) => createAccount( e, username, userpass , userpassrep )}>Зарегистрироваться</button>
                 </form>
                 <Link className = "link_reg" to = "/login"><p className="reg_text">Авторизироваться</p></Link>
             </div>

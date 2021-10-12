@@ -27,6 +27,7 @@ const App = () => {
         <Route path="/main" component={Main}/>
         <Redirect from="/" to="/login"/>
       </Switch>
+      
     </div>
 
   );
