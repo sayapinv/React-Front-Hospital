@@ -12,81 +12,31 @@ const RegistrationPanel = () => {
     const [ username, setUsername ] = useState('');
     const [ userpass, setUserpass ] = useState('');
     const [ userpassrep, setUserpassrep ] = useState('');
-    const [ errortext, setError ] = useState('')
+    const [ errortext, setError ] = useState('');
     
     let history = useHistory();
 
-    const createAccount = ( e, login , pass , rep) => {
+    const createAccount = async ( login , password , rep) => {
 
-        const addNewAccount = async (login,password) => {
-    
-            
+        if ( password === rep){
             await axios.post('http://localhost:8000/createAccount',{
 
                 login,
                 password
-                
+            
             }).then(res => {
-
-                console.log(res.data)
-
-                // history.push('/main')
-            })
-            
-            
-        }
-        
-        e.preventDefault()
-
-        const arr = userpass.split('')//проверка на наличие числа в строке
-        let count = false;
-        arr.forEach(element => {
-            if(isFinite(element)){
-                count = true;
-            }
-        });
-
-
-        const valid = (str) => {
-            return /^\s*(\w+)\s*$/.test(str);
-        };
-
-        if(login !== ""  && pass !== "" && rep !== ""){
-            if(valid(login)){
-                if(valid(pass)){
-                    if(login.length >= 6){
-                        if(pass.length >= 6){
-                            if(pass === rep){
-                                if(count){
-                                    addNewAccount(login,pass)
-                                    setUsername('')
-                                    setUserpass('')
-                                    setUserpassrep('')
-                                    setError('')
-                                }else{
-                                    setError('Пароль должен содержать хотя бы одно число')
-                                }
-                            }else{
-                                setError('Пароли не совпадают')
-                            }
-                        }else{
-                            setError('Пароль должен содержать не меньше 6 символов')
-                        }
-                    }else{
-                        setError('Логин должен содержать не меньше 6 символов')
-                    }
+                
+                if(res.data.errors){
+                    setError(res.data.errors[0].msg)
                 }else{
-                    setError('Пароль должен состоять из латинских букв и цифр')
+                    history.push('/main')
                 }
-            }else{
-                setError('Логин должен состоять из латинских букв и цифр')
-            }
+                
+
+            })
         }else{
-            setError('Заполните все поля')
+            setError('Пароли не совпадают!')
         }
-        
-        
-        
 
 
     }
@@ -100,7 +50,6 @@ const RegistrationPanel = () => {
                 <div className="headreg">
                     <p>Регистрация</p>
                 </div>
-                <form>
                     <div className="log">
                         <p>Login:</p>
                         <input type="text" value={ username } placeholder = "Login" onChange={(e) => setUsername(e.target.value)}/>
@@ -114,8 +63,7 @@ const RegistrationPanel = () => {
                         <input type="password" value={ userpassrep } placeholder = "Password" onChange={(e) => setUserpassrep(e.target.value)}/>
                     </div>
                     <div className="error"><p className="errortext">{errortext}</p></div>
-                    <button className = "btn_reg" value={"click"} onClick={(e) => createAccount( e, username, userpass , userpassrep )}>Зарегистрироваться</button>
-                </form>
+                    <button className = "btn_reg" value={"click"} onClick={() => createAccount( username, userpass , userpassrep )}>Зарегистрироваться</button>
                 <Link className = "link_reg" to = "/login"><p className="reg_text">Авторизироваться</p></Link>
             </div>
         
