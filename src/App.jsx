@@ -3,19 +3,30 @@ import Login from './components/Login';
 import Registration from './components/Registration';
 import Main from './components/Main';
 
+
 import { 
   Switch, 
   Route, 
-  Redirect,
-  Link
+  Redirect
 } from 'react-router-dom';
 
 
 const App = () => {
 
+  // const s = async () => {
+    
+  //   await axios.post('http://localhost:8000/createAccount',{
+
+  //     login,
+  //     password
   
+  //   }).then(res => {
+  //     console.log(res)
+  //   }
+  // }
   
 
+  
 
   return (
     
@@ -27,7 +38,6 @@ const App = () => {
         <Route path="/main" component={Main}/>
         <Redirect from="/" to="/login"/>
       </Switch>
-      
     </div>
 
   );

@@ -4,13 +4,14 @@ import Head from './Head/Head';
 
 
 
+
 const Login = () => {
-
-
+    
+    
     
     return(
         <>
-        <Head value={"Войти в систему"} />
+        <Head value={"Войти в систему"}/>
         <Menu value={true}/>
         </>
     )

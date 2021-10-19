@@ -15,9 +15,11 @@ const LoginPanel = () => {
     const [ username, setUsername ] = useState('');
     const [ userpass, setUserpass ] = useState('');
     
-    // const [ errortext, setError ] = useState('');
+    const [ errortext, setError ] = useState('');
 
     const loginAccount = async (login,password) => {
+
+        
 
         await axios.post('http://localhost:8000/loginAccount',{
 
@@ -29,7 +31,11 @@ const LoginPanel = () => {
                 if(res.data.token){
                     history.push('/main')
                 }else{
-                    console.log(res.data)
+                    if(res.data.massage){
+                        setError(res.data.massage)
+                    }else{
+                        setError(res.data.errors[0].msg)
+                    }
                 }
                 
             })
@@ -40,7 +46,7 @@ const LoginPanel = () => {
     
     return(
 
-        <div className="registration_log">
+            <div className="registration_log">
                 <div className="headreg_log">
                     <p>Войти в систему</p>
                 </div>
@@ -52,9 +58,12 @@ const LoginPanel = () => {
                         <p>Password:</p>
                         < input type="password" name="userpass" placeholder="Password" value={ userpass } onChange={(e) => setUserpass(e.target.value)}/>
                     </div>
+                    <div className="errortext" >{errortext}</div>
                     <button className="btn_reg_log" value="click" onClick={() => loginAccount(username,userpass )}>Войти</button>
                 <Link className="link" to="/registration"><p className="reg_text_log">Зарегистрироваться</p></Link>
             </div>
+            
+            
         
     )
     

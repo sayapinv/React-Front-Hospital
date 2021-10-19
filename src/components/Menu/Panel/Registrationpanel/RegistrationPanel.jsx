@@ -7,7 +7,6 @@ import { Link,useHistory } from 'react-router-dom';
 
 
 const RegistrationPanel = () => {
-
     
     const [ username, setUsername ] = useState('');
     const [ userpass, setUserpass ] = useState('');
@@ -27,9 +26,18 @@ const RegistrationPanel = () => {
             }).then(res => {
                 
                 if(res.data.errors){
+
                     setError(res.data.errors[0].msg)
+
                 }else{
-                    history.push('/main')
+
+                    if(res.data.token){
+
+                        localStorage.setItem('token', res.data.token);
+                        history.push('/main')
+                        
+                    }
+                    
                 }
                 
 
@@ -40,6 +48,7 @@ const RegistrationPanel = () => {
 
 
     }
+    
 
     
     
