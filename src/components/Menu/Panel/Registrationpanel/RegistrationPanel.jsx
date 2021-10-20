@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import './RegistrationPanel.css'
 
@@ -12,6 +12,7 @@ const RegistrationPanel = () => {
     const [ userpass, setUserpass ] = useState('');
     const [ userpassrep, setUserpassrep ] = useState('');
     const [ errortext, setError ] = useState('');
+    
     
     let history = useHistory();
 
@@ -32,9 +33,13 @@ const RegistrationPanel = () => {
                 }else{
 
                     if(res.data.token){
-
+                        setError("Аккаунт успешно зарегистрирован")
                         localStorage.setItem('token', res.data.token);
-                        history.push('/main')
+                        const timeOut = () => {
+                            history.push('/main')
+                            window.location.reload();
+                        }
+                        setTimeout(timeOut, 1000);
                         
                     }
                     
@@ -71,7 +76,7 @@ const RegistrationPanel = () => {
                         <p>Repeat Password:</p>
                         <input type="password" value={ userpassrep } placeholder = "Password" onChange={(e) => setUserpassrep(e.target.value)}/>
                     </div>
-                    <div className="error"><p className="errortext">{errortext}</p></div>
+                    <div className="error"><p className={errortext !== "Аккаунт успешно зарегистрирован"?"errortext":"greentext"}>{errortext}</p></div>
                     <button className = "btn_reg" value={"click"} onClick={() => createAccount( username, userpass , userpassrep )}>Зарегистрироваться</button>
                 <Link className = "link_reg" to = "/login"><p className="reg_text">Авторизироваться</p></Link>
             </div>

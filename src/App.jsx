@@ -2,6 +2,9 @@ import './App.css';
 import Login from './components/Login';
 import Registration from './components/Registration';
 import Main from './components/Main';
+import axios from 'axios';
+import React, { useState } from 'react';
+
 
 
 import { 
@@ -13,17 +16,34 @@ import {
 
 const App = () => {
 
-  // const s = async () => {
-    
-  //   await axios.post('http://localhost:8000/createAccount',{
+  const [ token, setToken ] = useState(false);
 
-  //     login,
-  //     password
+  const tokenVerification = async (token) => {
+    
+    await axios.post('http://localhost:8000/tokenverification',{
+
+      token
   
-  //   }).then(res => {
-  //     console.log(res)
-  //   }
-  // }
+    }).then(res => {
+      if(res.data){
+
+        setToken(true)
+        
+
+      }
+    })
+
+  }
+
+  
+
+
+  if( localStorage.token ){
+    tokenVerification(localStorage.token);
+  }
+  
+
+
   
 
   
@@ -35,7 +55,7 @@ const App = () => {
       <Switch>
         <Route path="/login" component={Login}/>
         <Route path="/registration" component={Registration}/>
-        <Route path="/main" component={Main}/>
+        {token?<Route path="/main" component={Main}/>:<Route path="/main" component={Login}/>}
         <Redirect from="/" to="/login"/>
       </Switch>
     </div>

@@ -27,9 +27,16 @@ const LoginPanel = () => {
                 password
             
             }).then(res => {
-
+                console.log(res.data)
                 if(res.data.token){
+                    
+
+                    localStorage.setItem('token', res.data.token);
                     history.push('/main')
+                    window.location.reload();
+                    
+                    
+                    
                 }else{
                     if(res.data.massage){
                         setError(res.data.massage)

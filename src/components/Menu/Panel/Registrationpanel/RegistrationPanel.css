@@ -327,6 +327,14 @@ input{
     margin: 0;
 
 }
+
+.greentext{
+
+    color: green;
+    font-size: 13px;
+    margin: 0;
+
+}
 .error{
 
     height: 25px;
