@@ -9,6 +9,7 @@ import './Loginpanel.css'
 
 
 const LoginPanel = () => {
+    
 
     let history = useHistory();
 
@@ -33,10 +34,9 @@ const LoginPanel = () => {
 
                     localStorage.setItem('token', res.data.token);
                     history.push('/main')
-                    window.location.reload();
                     
                     
-                    
+        
                 }else{
                     if(res.data.massage){
                         setError(res.data.massage)

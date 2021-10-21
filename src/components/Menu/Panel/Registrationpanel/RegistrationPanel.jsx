@@ -37,7 +37,7 @@ const RegistrationPanel = () => {
                         localStorage.setItem('token', res.data.token);
                         const timeOut = () => {
                             history.push('/main')
-                            window.location.reload();
+                             
                         }
                         setTimeout(timeOut, 1000);
                         
