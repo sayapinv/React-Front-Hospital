@@ -136,3 +136,30 @@
     color: #000000;
 
 }
+
+
+.btn_none{
+
+    width: 131px;
+    height: 45px;
+    left: 835px;
+    top: 180px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    margin-top: 29px;
+
+
+    color: #919191;
+
+}
+

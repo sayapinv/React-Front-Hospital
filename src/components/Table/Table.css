@@ -61,7 +61,6 @@
 .name-table{
     border-right: 2px solid;
     width: 241px;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,7 +69,6 @@
 .doctor-table{
     border-right: 2px solid;
     width: 231px;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,7 +77,6 @@
 .date-table{
     border-right: 2px solid;
     width: 162px;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,7 +84,6 @@
 .complaint-table{
     border-right: 2px solid;
     width: 202px;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,3 +103,4 @@ img{
 .width{
     width: 23px;
 }
+

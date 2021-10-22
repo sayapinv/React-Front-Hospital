@@ -28,7 +28,7 @@ const LoginPanel = () => {
                 password
             
             }).then(res => {
-                console.log(res.data)
+
                 if(res.data.token){
                     
 
