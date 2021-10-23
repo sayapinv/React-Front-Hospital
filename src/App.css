@@ -1,10 +1,7 @@
 body{
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 99%;
     height: 98vh;
-    width: 99vw;
     background: rgba(197, 233, 255, 0.72);
 
 }

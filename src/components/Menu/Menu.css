@@ -4,7 +4,9 @@
 .menu{
 
     display: flex;
-    height: 589px;
+    justify-content: center;
+    align-items: center;
+    height: 86vh;
 
 }
 

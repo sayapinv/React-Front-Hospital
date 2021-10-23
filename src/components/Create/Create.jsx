@@ -1,5 +1,5 @@
 import './Create.css'
-import React, { useState} from 'react';
+import React, { useState , useEffect} from 'react';
 import axios from 'axios';
 
 
@@ -36,6 +36,8 @@ const Create = ({setReception,reception}) => {
 
     }
 
+    
+
     const variableClass = () => {
         return createName && createDoctor && createDate && createComplaint ? "btn_create" : "btn_none"
     }
@@ -48,33 +50,35 @@ const Create = ({setReception,reception}) => {
 
     
     return(
-
-        <div className="filter">
-            <div className="block">
-                <p>Имя:</p>
-                <input type="text" value={createName} onChange={(e) => setCreateName(e.target.value)}/>
+        <div className="mainfilter">
+            <div className="filter">
+                <div className="block">
+                    <p>Имя:</p>
+                    <input type="text" value={createName} onChange={(e) => setCreateName(e.target.value)}/>
+                </div>
+                <div className="block">
+                    <p>Врач:</p>
+                    <select value={createDoctor} onChange={(e) => setCreateDoctor(e.target.value)}>
+                        <option hidden></option>
+                        <option>Иванов Иван Иванович</option>
+                        <option>Сергеев Сергей Сергеевич</option>
+                        <option>Дмитриев Дмитрий Дмитриевич</option>
+                    </select>
+                </div>
+                <div className="block">
+                    <p>Дата:</p>
+                    <input type="date" value={createDate} onChange={(e) => setCreateDate(e.target.value)}/>
+                </div>
+                <div className="block">
+                    <p>Жалобы:</p>
+                    <input type="text" value={createComplaint} onChange={(e) => setCreateComplaint(e.target.value)}/>
+                </div>
+                <button disabled={variableBool()} className={variableClass()} onClick={() => CreateReception(createName,createDoctor,createDate,createComplaint,localStorage.token)}>
+                    Добавить
+                </button>
             </div>
-            <div className="block">
-                <p>Врач:</p>
-                <select value={createDoctor} onChange={(e) => setCreateDoctor(e.target.value)}>
-                    <option hidden></option>
-                    <option>Иванов Иван Иванович</option>
-                    <option>Сергеев Сергей Сергеевич</option>
-                    <option>Дмитриев Дмитрий Дмитриевич</option>
-                </select>
-            </div>
-            <div className="block">
-                <p>Дата:</p>
-                <input type="date" value={createDate} onChange={(e) => setCreateDate(e.target.value)}/>
-            </div>
-            <div className="block">
-                <p>Жалобы:</p>
-                <input type="text" value={createComplaint} onChange={(e) => setCreateComplaint(e.target.value)}/>
-            </div>
-            <button disabled={variableBool()} className={variableClass()} onClick={() => CreateReception(createName,createDoctor,createDate,createComplaint,localStorage.token)}>
-                Добавить
-            </button>
         </div>
+        
         
     )
     

@@ -16,15 +16,15 @@ const Main = () => {
 
         await axios.get('http://localhost:8000/getreceptions').then(res => {
 
-            const filterReception = [];
+            // const filterReception = [];
 
-            res.data.data.forEach(element => {
-                if(element.number === decoded.id){
-                    filterReception.push(element)
-                }
-            });
+            // res.data.data.forEach(element => {
+            //     if(element.number === decoded.id){
+            //         filterReception.push(element)
+            //     }
+            // });
             
-            setReception(filterReception);
+            setReception(res.data.data);
         })
     }
 

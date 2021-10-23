@@ -31,9 +31,6 @@
     margin-left: 142px;
 }
 
-.Table{
-    margin: 24px;
-}
 .bottom-table{
 
     border: 1px solid;
@@ -102,5 +99,11 @@ img{
 
 .width{
     width: 23px;
+}
+
+.mainTable{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
