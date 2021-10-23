@@ -18,7 +18,7 @@ const RegistrationPanel = () => {
 
     const createAccount = async ( login , password , rep) => {
 
-        if ( password === rep){
+        if ( password === rep ){
             await axios.post('http://localhost:8000/createAccount',{
 
                 login,
