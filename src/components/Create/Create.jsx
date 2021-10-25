@@ -1,12 +1,11 @@
 import './Create.css'
-import React, { useState , useEffect} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 
 
-const Create = ({setReception,reception}) => {
+const Create = ({setReception}) => {
 
-    
     const [ createName, setCreateName ] = useState('');
     const [ createDoctor, setCreateDoctor ] = useState('');
     const [ createDate, setCreateDate ] = useState('');
@@ -24,13 +23,12 @@ const Create = ({setReception,reception}) => {
                 token
             
             }).then(res => {
-
+                
                 setCreateName('')
                 setCreateDoctor('')
                 setCreateDate('')
                 setCreateComplaint('')
-
-                setReception(reception)
+                setReception(res.data.data)
 
             })
 
@@ -78,6 +76,7 @@ const Create = ({setReception,reception}) => {
                 </button>
             </div>
         </div>
+        
         
         
     )
