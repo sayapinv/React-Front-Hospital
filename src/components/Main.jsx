@@ -7,16 +7,17 @@ import React, { useState,useEffect } from 'react';
 
 
 
+
 const Main = () => {
 
-    const getReception = async () => {
 
-        await axios.get(`http://localhost:8000/getreceptions/${localStorage.token}`).then(res => {
+     await axios.get(`http://localhost:8000/getreceptions?token=${localStorage.token}`).then(res => {
+            
 
-            setReception(res.data.data);
+        setReception(res.data.data);
 
-        })
-    }
+    })
+    
 
     const [ reception, setReception ] = useState([]);
 
