@@ -14,7 +14,7 @@ const Create = ({setReception}) => {
     
 
     const CreateReception = async (name,doctor,date,complaint,token) => {
-
+        
         await axios.post('http://localhost:8000/createreception',{
 
                 name,
@@ -38,11 +38,15 @@ const Create = ({setReception}) => {
     
 
     const variableClass = () => {
+
         return createName && createDoctor && createDate && createComplaint ? "btn_create" : "btn_none"
+
     }
 
     const variableBool = () => {
-        return !createName && !createDoctor && !createDate && !createComplaint
+
+        return !createName || !createDoctor || !createDate || !createComplaint
+      
     }
 
 
@@ -89,3 +93,4 @@ const Create = ({setReception}) => {
 
 
 export default Create;
+

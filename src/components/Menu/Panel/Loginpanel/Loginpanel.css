@@ -102,6 +102,8 @@
 }
 
 .btn_reg_log{
+    
+    cursor: pointer;
 
     width: 149px;
     height: 40px;

@@ -24,12 +24,13 @@ const Main = () => {
         getReception()
     },[])
 
+
     
     return(
         <>
         <Head value="Приёмы"/>
         <Create setReception={setReception}/>
-        <Table reception={reception}/>
+        <Table reception={reception} setReception={setReception}/>
         </>
         
     )

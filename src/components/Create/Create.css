@@ -49,10 +49,13 @@
     box-sizing: border-box;
     border-radius: 4px;
 
-    font-size: 22px;
+    font-size: 18px;
     font-family: Roboto;
     font-style: normal;
     font-weight: 300;
+
+    padding-left: 20px;
+    
 
 }
 
@@ -65,9 +68,25 @@
     box-sizing: border-box;
     border-radius: 4px;
 
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+
+}
+
+.block input{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
 }
 
 .btn_create{
+
+    cursor: pointer;
 
     width: 131px;
     height: 45px;
