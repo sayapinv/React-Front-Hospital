@@ -4,14 +4,15 @@ import edit from './image/edit-24px 1.svg'
 import moment from 'moment'
 import React, { useState } from 'react';
 import axios from 'axios';
+import Sorting from '../Sorting/Sorting';
 
 
 
 
 
 
-const Table = ({ reception,setReception }) => {
-
+const Table = ({ reception,setReception,setOneSort,setTwoSort}) => {
+    
     const [button_edit, setEdit] = useState(false);
     const [button_del, setDel] = useState(false);
     const [idState, setIdState] = useState('');
@@ -71,6 +72,8 @@ const Table = ({ reception,setReception }) => {
     }
     
     return reception.length>0&&(
+        <>
+        <Sorting setOneSort={setOneSort} setTwoSort={setTwoSort}/>
         <div className="mainTable">
             <div className="Table">
                 <div className="headtable">
@@ -150,7 +153,7 @@ const Table = ({ reception,setReception }) => {
                 </div>
             </div>
         </div>
-
+        </>
     )
 
 }
