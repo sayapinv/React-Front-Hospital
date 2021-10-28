@@ -6,16 +6,46 @@ import React, { useState,useEffect } from 'react';
 
 
 
+
+
 const Main = () => {
 
     const [ reception, setReception ] = useState([]);
-
     const [ oneSort, setOneSort] = useState('');
     const [ twoSort, setTwoSort] = useState('');
+    const [selectOne, setSelectOne] = useState('');
 
+    const [filterDate1,setFilterDate1] = useState('');////////////////////////////////для фильтра первая дата
+    const [filterDate2,setFilterDate2] = useState('');////////////////////////////////для фильтра вторая дата
+
+    const [click,setClick] = useState(false);
+    
     const sortReception = () => {
-        console.log(oneSort)
-        console.log(twoSort)
+        
+        const copyCollection = reception.concat()
+
+
+        
+        if(oneSort){
+        
+            if(oneSort!=='none'){
+
+                setReception(copyCollection.sort((a,b) => {return a[oneSort] > b[oneSort]? 1:-1}))
+                if(twoSort!=='inc'){
+                    setReception(copyCollection.sort((a,b) => {return a[oneSort] > b[oneSort]? 1:-1}).reverse())
+                }
+
+            }else{
+
+                getReception()
+                setSelectOne('')
+
+            }
+    
+        }
+
+        
+        
     }
     
 
@@ -36,7 +66,7 @@ const Main = () => {
 
     useEffect ( () => {
 
-        if(oneSort){
+        if(oneSort&&twoSort){
             sortReception()
         }
         
@@ -44,11 +74,27 @@ const Main = () => {
 
     useEffect ( () => {
 
-        if(twoSort==="По убыванию"){
+        if( oneSort&&twoSort) {
+
             sortReception()
+
         }
         
     },[twoSort])
+
+    useEffect ( () => {
+
+        if(click){
+            filterFunc()
+        }
+        
+    },[click])
+
+    const filterFunc = () =>{
+        console.log('вход')
+    }
+
+
 
 
 
@@ -66,7 +112,7 @@ const Main = () => {
         <>
         <Head value="Приёмы"/>
         <Create setReception={setReception}/>
-        <Table reception={reception} setReception={setReception} setOneSort={setOneSort} setTwoSort={setTwoSort}/>
+        <Table reception={reception} setClick={setClick} setReception={setReception} setOneSort={setOneSort} setTwoSort={setTwoSort} selectOne={selectOne} setSelectOne={setSelectOne} setFilterDate1={setFilterDate1} setFilterDate2={setFilterDate2} filterDate1={filterDate1} filterDate2={filterDate2}/>
         </>
         
     )

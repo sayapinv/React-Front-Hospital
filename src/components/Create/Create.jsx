@@ -35,8 +35,6 @@ const Create = ({setReception}) => {
 
     }
 
-    
-
     const variableClass = () => {
 
         return createName && createDoctor && createDate && createComplaint ? "btn_create" : "btn_none"

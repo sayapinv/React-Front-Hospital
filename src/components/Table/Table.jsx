@@ -11,17 +11,19 @@ import Sorting from '../Sorting/Sorting';
 
 
 
-const Table = ({ reception,setReception,setOneSort,setTwoSort}) => {
+
+const Table = ({ reception,setReception,setOneSort,setTwoSort,selectOne,setSelectOne,setFilterDate1,setFilterDate2,filterDate1,filterDate2,setClick}) => {
     
     const [button_edit, setEdit] = useState(false);
     const [button_del, setDel] = useState(false);
     const [idState, setIdState] = useState('');
     const [numState, setNumState] = useState('');
-
     const [name,setName] = useState('');
     const [doctor,setDoctor] = useState('');
     const [date,setDate] = useState('');
     const [complaint,setComp] = useState('');
+
+
 
     const delReception = async () => {
         
@@ -73,7 +75,7 @@ const Table = ({ reception,setReception,setOneSort,setTwoSort}) => {
     
     return reception.length>0&&(
         <>
-        <Sorting setOneSort={setOneSort} setTwoSort={setTwoSort}/>
+        <Sorting setClick={setClick} setOneSort={setOneSort} setTwoSort={setTwoSort} selectOne={selectOne} setSelectOne={setSelectOne} setFilterDate1={setFilterDate1} setFilterDate2={setFilterDate2} filterDate1={filterDate1} filterDate2={filterDate2}/>
         <div className="mainTable">
             <div className="Table">
                 <div className="headtable">
