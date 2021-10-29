@@ -1,6 +1,7 @@
-import create from '../Filter/image/Vector.svg'
+
 import './Filter.css'
-import React, { useEffect,useState } from 'react';
+import React, { useEffect } from 'react';
+import delFilter from '..//Filter/image/delitefilter.svg'
 
 
 
@@ -8,37 +9,77 @@ import React, { useEffect,useState } from 'react';
 
 
 
-const Filter = ({setFilterComp,filterComp,filterwin,setFilterwin}) => {
-    
-    // const [filterwin,setFilterwin] = useState(false)
+const Filter = ({
+
+    setFilterComp,
+    filterComp,
+    filterHidden,
+    setFilterHidden,
+    filterStart,
+    setFilterStart,
+    filterEnd,
+    setFilterEnd,
+    setClick,
+    defaultDescending,
+    sortReception,
+    getReception
+
+}) => {
+
+    const zeroingDel = () => {
+
+        setFilterComp(false)
+        setFilterStart('')
+        setFilterEnd('')
+
+        if (defaultDescending) {
+
+
+            sortReception()
+
+        } else {
+
+            getReception()
+        }
+
+
+
+
+
+
+    }
 
     useEffect(() =>{
-        if(filterwin){
+        if(filterHidden){
             setFilterComp(true)
         }
-    },[filterwin])
+    },[filterHidden])
 
     useEffect(() =>{
         if(filterComp){
-            setFilterwin(false)
+            setFilterHidden(false)
         }
     },[filterComp])
-
-    const twoFunc = () => {
-
-        setFilterwin(true)
-        
-    }
     
     
     return(
         <>
-        { !filterComp &&
-            <div className="filter">
-                <p>Добавить фильтр по дате:</p>
-                <img src={create} onClick={() => twoFunc()}/>
-            </div>
-        }
+        {filterComp &&
+                <div className="filterhidden">
+                    <div className="filtermain">
+                        <div className='blockfilter1' >
+                            <p>c:</p>
+                            <input type="date" value={filterStart} onChange={(e) => setFilterStart(e.target.value)} />
+                        </div>
+                        <div className='blockfilter2'>
+                            <p>по:</p>
+                            <input type="date" value={filterEnd} onChange={(e) => setFilterEnd(e.target.value)} />
+                        </div>
+                        <button onClick={() => setClick(true)} >Фильтровать</button>
+                        <img src={delFilter} alt="no image" onClick={() => zeroingDel()} />
+                    </div>
+                </div>
+            }
         </>
         
         
