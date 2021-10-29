@@ -4,7 +4,7 @@ import Filter from '../Filter/Filter';
 import delFilter from '../Filter/image/delitefilter.svg'
 
 
-
+ 
 
 const Sorting = (props) => {
 
