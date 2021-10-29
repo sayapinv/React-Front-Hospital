@@ -1,0 +1,23 @@
+.filter{
+
+    display: flex;
+    align-items: center;
+
+    width: 262px;
+    height: 40px;
+    margin-left: 24px;
+
+}
+
+.filter p{
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+
+    margin: 0;
+    margin-right: 10px;
+}
+

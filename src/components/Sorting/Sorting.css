@@ -1,0 +1,207 @@
+.mainblock{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+.activeblock{
+
+    display: flex;
+    justify-content: right;
+    width: 941px;
+
+    align-items: center;
+    margin-top: 27px;
+    margin-bottom: 27px;
+
+}
+
+.sortselect{
+
+    width: 200px;
+    height: 47px;
+    left: 766px;
+    top: 276px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    
+}
+
+.activeblock p{
+
+    margin: 0;
+    margin-right: 18px;
+    margin-left: 18px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+
+    color: #000000;
+
+}
+
+.hiddendiv{
+
+    width: 333px;
+    height: 47px;
+
+    display: flex;
+    align-items: center;
+
+}
+
+.hiddenselect{
+
+    width: 200px;
+    height: 47px;
+    left: 766px;
+    top: 288px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+
+    color: #000000;
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Filter_hidden*/
+
+.filterhidden{
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.filtermain{
+
+    width: 941px;
+
+    display: flex;
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 30px;
+
+}
+
+.filtermain button{
+
+    width: 208px;
+    height: 40px;
+    left: 633px;
+    top: 354px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    cursor: pointer;
+    /* identical to box height */
+
+
+    color: #000000;
+
+    margin-left: 40px;
+
+}
+
+.blockfilter1{
+    display: flex;
+    align-items: center;
+}
+
+.blockfilter2{
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+}
+
+.filtermain img{
+    margin-left: 32px;
+}
+ .blockfilter1 input{
+    padding-left: 20px;
+    width: 238px;
+    height: 40px;
+    left: 56px;
+    top: 357px;
+    
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+ }
+
+ .blockfilter2 input{
+    padding-left: 20px;
+    width: 238px;
+    height: 40px;
+    left: 56px;
+    top: 357px;
+    
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+ }
+
+ .blockfilter1 p{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    margin-right: 8px;
+    /* identical to box height */
+    
+    
+    color: #000000;
+ }
+
+ .blockfilter2 p{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    margin-right: 8px;
+    /* identical to box height */
+    
+    
+    color: #000000;
+ }
