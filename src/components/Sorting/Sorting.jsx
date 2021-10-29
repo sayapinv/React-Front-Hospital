@@ -6,9 +6,26 @@ import delFilter from '../Filter/image/delitefilter.svg'
 
 
 
-const Sorting = ({setClick,setOneSort,setTwoSort,selectOne,setSelectOne,setFilterDate1,setFilterDate2,filterDate1,filterDate2}) => {
+const Sorting = (props) => {
 
-    
+    const {
+
+        setClick,
+        setOneSort,
+        setTwoSort,
+        selectOne,
+        setSelectOne,
+        setFilterDate1,
+        setFilterDate2,
+        filterDate1,
+        filterDate2,
+        sortReception,
+        getReception,
+        filterwin,
+        setFilterwin
+
+    } = props
+
 
 
     const [selectTwo, setSelectTwo] = useState('inc');
@@ -22,89 +39,119 @@ const Sorting = ({setClick,setOneSort,setTwoSort,selectOne,setSelectOne,setFilte
 
     }
 
-    
+
     useEffect(() => {
 
-        if(selectOne){
+        if (selectOne) {
             sendData()
         }
 
-    },[selectOne])
+    }, [selectOne])
 
     useEffect(() => {
 
 
-        if(selectTwo){
+        if (selectTwo) {
             sendData()
         }
-        
-    },[selectTwo])
 
+    }, [selectTwo])
 
-    ///////////////////////////////////////////////////////////////////////
 
     useEffect(() => {
 
-        
-    },[filterDate1])
+        setClick(false)
+
+    }, [filterDate1])
 
     useEffect(() => {
 
-        
-    },[filterDate1])
+        setClick(false)
+
+    }, [filterDate2])
 
 
 
-    ///////////////////////////////////////////////////////////////////////////////
-    
+    const zeroingDel = () => {
+
+        setFilterComp(false)
+        setFilterDate1('')
+        setFilterDate2('')
+
+        if (selectOne) {
+
+
+            sortReception()
+
+        } else {
+
+            getReception()
+        }
 
 
 
-    
 
-    return(
+
+
+    }
+
+
+
+
+
+
+    return (
         <>
-        <div className="mainblock">
-            <div className="activeblock">
-                <p>Сортировать по:</p>
-                <select className="sortselect" value={selectOne==='none'?'':selectOne} onChange={(e) => setSelectOne(e.target.value)}>
-                    <option hidden></option>
-                    <option value="name">Имя</option>
-                    <option value="doctor">Врач</option>
-                    <option value="date">Дата</option>
-                    <option value="none">None</option>
-                </select>
-                {selectOne && selectOne!=="none" &&
-                <div className="hiddendiv">
-                    <p>Направление:</p>
-                    <select className="hiddenselect" onChange={(e) => setSelectTwo(e.target.value)}>
-                        <option value="inc">По возрастанию</option>
-                        <option value="dec">По убыванию</option>
+            <div className="mainblock">
+                <div className="activeblock">
+                    <p>Сортировать по:</p>
+                    <select
+                        className="sortselect"
+                        value={selectOne === 'none' ? '' : selectOne}
+                        onChange={(e) => setSelectOne(e.target.value)}
+                    >
+                        <option hidden></option>
+                        <option value="name">Имя</option>
+                        <option value="doctor">Врач</option>
+                        <option value="date">Дата</option>
+                        <option value="none">None</option>
                     </select>
+                    {selectOne && selectOne !== "none" &&
+                        <div className="hiddendiv">
+                            <p>Направление:</p>
+                            <select className="hiddenselect" onChange={(e) => setSelectTwo(e.target.value)}>
+                                <option value="inc">По возрастанию</option>
+                                <option value="dec">По убыванию</option>
+                            </select>
+                        </div>
+                    }
+                    <Filter
+                        setFilterComp={setFilterComp}
+                        filterComp={filterComp}
+                        filterwin={filterwin}
+                        setFilterwin={setFilterwin}
+                    />
                 </div>
-                }
-                <Filter setFilterComp={setFilterComp} filterComp={filterComp} setSelectOne={setSelectOne}/>
             </div>
-        </div>
-        {filterComp && 
-        <div className="filterhidden">
-            <div className="filtermain">
-                <div className='blockfilter1' >
-                    <p>c:</p>
-                    <input type="date" onChange={(e) => setFilterDate1(e.target.value)}/>
+            {filterComp &&
+                <div className="filterhidden">
+                    <div className="filtermain">
+                        <div className='blockfilter1' >
+                            <p>c:</p>
+                            <input type="date" value={filterDate1} onChange={(e) => setFilterDate1(e.target.value)} />
+                        </div>
+                        <div className='blockfilter2'>
+                            <p>по:</p>
+                            <input type="date" value={filterDate2} onChange={(e) => setFilterDate2(e.target.value)} />
+                        </div>
+                        <button onClick={() => setClick(true)} >Фильтровать</button>
+                        <img src={delFilter} alt="no image" onClick={() => zeroingDel()} />
+                    </div>
                 </div>
-                <div className='blockfilter2'>
-                    <p>по:</p>
-                    <input type="date" onChange={(e) => setFilterDate2(e.target.value)}/>
-                </div>
-                <button>Фильтровать</button>
-                <img src={delFilter} alt="no image" onClick={() => setFilterComp(!filterComp)} />
-            </div>
-        </div>
-        }
+            }
         </>
     )
-    
+
 }
 
 

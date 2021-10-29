@@ -8,9 +8,9 @@ import React, { useEffect,useState } from 'react';
 
 
 
-const Filter = ({setFilterComp,filterComp,setSelectOne}) => {
+const Filter = ({setFilterComp,filterComp,filterwin,setFilterwin}) => {
     
-    const [filterwin,setFilterwin] = useState(false)
+    // const [filterwin,setFilterwin] = useState(false)
 
     useEffect(() =>{
         if(filterwin){
@@ -27,14 +27,13 @@ const Filter = ({setFilterComp,filterComp,setSelectOne}) => {
     const twoFunc = () => {
 
         setFilterwin(true)
-        setSelectOne(false)
         
     }
     
     
     return(
         <>
-        { !filterComp &&///////////////////////////////////////////<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<,Filter hidden
+        { !filterComp &&
             <div className="filter">
                 <p>Добавить фильтр по дате:</p>
                 <img src={create} onClick={() => twoFunc()}/>
