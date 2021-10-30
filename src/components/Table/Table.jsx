@@ -10,16 +10,19 @@ import axios from 'axios';
 
 
 
-const Table = ({ reception }) => {
-
+const Table = ({ reception,setReception }) => {
+    
     const [button_edit, setEdit] = useState(false)
     const [button_del, setDel] = useState(false)
     const [instate, setState] = useState(null)
 
     const delReception = async (id) => {
+
         await axios.delete(`http://localhost:8000/deleteReception?id=${id}`).then(res => {
-            
+            setReception(res.data.data)
+            setDel(false)
         })
+        
     }
 
 

@@ -13,7 +13,7 @@ const Create = ({setReception}) => {
     
 
     const CreateReception = async (name,doctor,date,complaint,token) => {
-
+        
         await axios.post('http://localhost:8000/createreception',{
 
                 name,
