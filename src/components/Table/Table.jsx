@@ -2,6 +2,7 @@ import './Table.css'
 import del from './image/delete_outline-24px 1.svg'
 import edit from './image/edit-24px 1.svg'
 import moment from 'moment'
+import { useEffect } from 'react'
 
 
 
@@ -29,9 +30,11 @@ const Table = (props) => {
 
     } = props
 
+    
+
 
     const delFunc = (obj) => {
-
+        
         setDel(true);
         setIdState(obj._id);
         setNumState(obj.number);
@@ -53,6 +56,7 @@ const Table = (props) => {
 
     return reception.length > 0 && (
         <>
+        {/* Таблица */}
             <div className="mainTable">
                 <div className="Table">
                     <div className="headtable">
@@ -62,7 +66,6 @@ const Table = (props) => {
                         <p className="complaint">Жалобы</p>
                     </div>
                     <div className="bottom-table">
-                        {/* Таблица */}
                         {
                             reception.map((obj, index) =>
 

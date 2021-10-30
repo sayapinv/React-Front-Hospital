@@ -26,7 +26,9 @@ const Main = () => {
     const [filterEnd, setFilterEnd] = useState('');//для фильтра вторая дата "по"
 
     const [click, setClick] = useState(false);//если true срабатывает функция фильтрации
+
     const [receptionDef, setReceptionDef] = useState([]);//дефолтные значения приходящие с сервера 
+
     const [filterHidden, setFilterHidden] = useState(false)
     const [filterComp, setFilterComp] = useState(false);//выводит скрытое окно фильтрации "c" "по"
     const [idState, setIdState] = useState('');//сюда записывается id элемента который нужно удалить или отредактировать
@@ -124,6 +126,10 @@ const Main = () => {
 
         if (click) {
             filterFunc()
+            if(sortDescending){
+                sortReception()
+            }
+            
         }
 
     }, [click])
@@ -138,7 +144,7 @@ const Main = () => {
 
             const newArr = [];
 
-            const copyCollection = receptionDef.concat()
+            const copyCollection = reception.concat()
 
             copyCollection.forEach(item => {
 
@@ -175,7 +181,6 @@ const Main = () => {
 
     return (
         <>
-
             <Head value="Приёмы" />
             <Create setReception={setReception} />
             <div className="mainblock">
@@ -198,19 +203,19 @@ const Main = () => {
                 </div>
             </div>
             <Filter
-                        setFilterComp={setFilterComp}
-                        filterComp={filterComp}
-                        filterHidden={filterHidden}
-                        setFilterHidden={setFilterHidden}
-                        filterStart={filterStart}
-                        setFilterStart={setFilterStart}
-                        filterEnd={filterEnd}
-                        setFilterEnd={setFilterEnd}
-                        setClick={setClick}
-                        defaultDescending={defaultDescending}
-                        sortReception={sortReception}
-                        getReception={getReception}
-                    />
+                setFilterComp={setFilterComp}
+                filterComp={filterComp}
+                filterHidden={filterHidden}
+                setFilterHidden={setFilterHidden}
+                filterStart={filterStart}
+                setFilterStart={setFilterStart}
+                filterEnd={filterEnd}
+                setFilterEnd={setFilterEnd}
+                setClick={setClick}
+                defaultDescending={defaultDescending}
+                sortReception={sortReception}
+                getReception={getReception}
+            />
             <Table
                 reception={reception}
                 setIdState={setIdState}
@@ -221,6 +226,7 @@ const Main = () => {
                 setDoctor={setDoctor}
                 setDate={setDate}
                 setComp={setComp}
+                setDel={setDel}
             />
             <ModalEdit
                 button_edit={button_edit}
@@ -238,6 +244,7 @@ const Main = () => {
                 setReception={setReception}
             />
             <ModalDelite
+
                 idState={idState}
                 setIdState={setIdState}
                 numState={numState}

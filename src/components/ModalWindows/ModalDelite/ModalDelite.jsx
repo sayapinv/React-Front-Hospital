@@ -25,6 +25,7 @@ const ModalDelite = (props) => {
 
             setReception(res.data.data)
             setDel(false)
+            
 
         })
     }
