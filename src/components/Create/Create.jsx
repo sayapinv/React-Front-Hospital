@@ -34,22 +34,24 @@ const Create = ({setReception}) => {
 
     }
 
-    
-
     const variableClass = () => {
+
         return createName && createDoctor && createDate && createComplaint ? "btn_create" : "btn_none"
+
     }
 
     const variableBool = () => {
-        return !createName && !createDoctor && !createDate && !createComplaint
+
+        return !createName || !createDoctor || !createDate || !createComplaint
+      
     }
 
 
 
     
     return(
-        <div className="mainfilter">
-            <div className="filter">
+        <div className="maincreate">
+            <div className="create">
                 <div className="block">
                     <p>Имя:</p>
                     <input type="text" value={createName} onChange={(e) => setCreateName(e.target.value)}/>
@@ -89,3 +91,4 @@ const Create = ({setReception}) => {
 
 
 export default Create;
+

@@ -1,4 +1,4 @@
-.filter {
+.create {
 
     width: 941px;
     height: 122px;
@@ -9,14 +9,15 @@
     
 }
 
-.mainfilter{
+.maincreate{
+
     margin-top: 10px;
-    margin-bottom: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #C5E9FF;
     box-shadow: 0px 8px 4px 0px rgb(0 0 0 / 25%);
+    
 }
 
 .block{
@@ -49,10 +50,13 @@
     box-sizing: border-box;
     border-radius: 4px;
 
-    font-size: 22px;
+    font-size: 18px;
     font-family: Roboto;
     font-style: normal;
     font-weight: 300;
+
+    padding-left: 20px;
+    
 
 }
 
@@ -65,9 +69,25 @@
     box-sizing: border-box;
     border-radius: 4px;
 
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+
+}
+
+.block input{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
 }
 
 .btn_create{
+
+    cursor: pointer;
 
     width: 131px;
     height: 45px;

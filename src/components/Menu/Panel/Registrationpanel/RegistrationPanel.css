@@ -142,6 +142,8 @@
 
 .btn_reg{
 
+    cursor: pointer;
+
     width: 195px;
     height: 40px;
 

@@ -25,9 +25,12 @@ const Head = (props) => {
                 <p>{value}</p>
 
             </div>
-            <Link to="/login" className={(value === 'Приёмы')? 'linkexit' : 'linknone'} >
-                <button onClick={() => delStorage()} className={(value === 'Приёмы')? 'btn_exit' : 'hiddenexit'}>Выход</button>
-            </Link>
+            <div className={(value === 'Приёмы')? 'linkexit' : 'linknone'}>
+                <Link to="/login" className="link">
+                    <button onClick={() => delStorage()} className={(value === 'Приёмы')? 'btn_exit' : 'hiddenexit'}>Выход</button>
+                </Link>
+            </div>
+            
             
 
             
