@@ -14,7 +14,7 @@ import { useEffect } from 'react'
 
 
 
-const Table = (props) => {
+const Table = ({tableProps}) => {
 
     const {
 
@@ -28,7 +28,7 @@ const Table = (props) => {
         setDate,
         setComp
 
-    } = props
+    } = tableProps;
 
     
 
@@ -38,7 +38,6 @@ const Table = (props) => {
         setDel(true);
         setIdState(obj._id);
         setNumState(obj.number);
-
 
     }
 

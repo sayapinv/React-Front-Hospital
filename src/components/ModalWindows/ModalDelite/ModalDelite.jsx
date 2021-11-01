@@ -7,7 +7,7 @@ import axios from 'axios';
 
 
 
-const ModalDelite = (props) => {
+const ModalDelite = ({modalDelite}) => {
 
     const {
 
@@ -15,15 +15,22 @@ const ModalDelite = (props) => {
         numState,
         setReception,
         setDel,
-        button_del
+        button_del,
+        setFilterComp,
+        setDefaultDescending,
+        setReceptionDef
+
         
-    } = props
+    } = modalDelite;
 
     const delReception = async () => {
 
         await axios.delete(`http://localhost:8000/deleteReception?id=${idState}&&number=${numState}`).then(res => {
 
             setReception(res.data.data)
+            setReceptionDef(res.data.data)
+            setFilterComp('')
+            setDefaultDescending('')
             setDel(false)
             
 

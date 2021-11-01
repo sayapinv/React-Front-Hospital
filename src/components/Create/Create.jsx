@@ -4,7 +4,16 @@ import axios from 'axios';
 
 
 
-const Create = ({setReception}) => {
+const Create = ({createProps}) => {
+
+    const {
+
+        setFilterComp,
+        setDefaultDescending,
+        setReception,
+        setReceptionDef
+
+    } = createProps;
 
     const [ createName, setCreateName ] = useState('');
     const [ createDoctor, setCreateDoctor ] = useState('');
@@ -23,12 +32,16 @@ const Create = ({setReception}) => {
                 token
             
             }).then(res => {
+
                 
                 setCreateName('')
                 setCreateDoctor('')
                 setCreateDate('')
                 setCreateComplaint('')
-                setReception(res.data.data)
+                setFilterComp('')
+                setDefaultDescending('')
+                
+                setReceptionDef(res.data.data)
 
             })
 

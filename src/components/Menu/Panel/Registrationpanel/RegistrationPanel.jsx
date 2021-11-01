@@ -25,6 +25,7 @@ const RegistrationPanel = () => {
                 password
             
             }).then(res => {
+
                 
                 if(res.data.errors){
 
@@ -33,6 +34,7 @@ const RegistrationPanel = () => {
                 }else{
                     
                     if(res.data.token){
+                        
                         setError("Аккаунт успешно зарегистрирован")
                         localStorage.setItem('token', res.data.token);
                         const timeOut = () => {

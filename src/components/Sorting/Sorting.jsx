@@ -5,19 +5,17 @@ import React, { useEffect, useState } from 'react';
 
 
 
-const Sorting = (props) => {
+const Sorting = ({sortingProps}) => {
 
     const {
 
-        setClick,
         setSortBy,
         setSortDescending,
         defaultDescending,
         setDefaultDescending,
-        filterStart,
-        filterEnd
 
-    } = props
+
+    } = sortingProps
 
     const [selectTwo, setSelectTwo] = useState('inc');
 
@@ -45,27 +43,6 @@ const Sorting = (props) => {
         }
 
     }, [selectTwo])
-
-
-    useEffect(() => {
-
-        setClick(false)
-
-    }, [filterStart])
-
-    useEffect(() => {
-
-        setClick(false)
-
-    }, [filterEnd])
-
-
-
-
-
-
-
-
 
 
     return (

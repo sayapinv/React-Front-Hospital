@@ -9,37 +9,41 @@ import delFilter from '..//Filter/image/delitefilter.svg'
 
 
 
-const Filter = ({
+const Filter = ({ filterProps }) => {
 
-    setFilterComp,
-    filterComp,
-    filterHidden,
-    setFilterHidden,
-    filterStart,
-    setFilterStart,
-    filterEnd,
-    setFilterEnd,
-    setClick,
-    defaultDescending,
-    sortReception,
-    getReception
+    const {
 
-}) => {
+        setFilterComp,
+        filterComp,
+        filterHidden,
+        setFilterHidden,
+        filterStart,
+        setFilterStart,
+        filterEnd,
+        setFilterEnd,
+        defaultDescending,
+        sortReception,
+        getReception,
+        filterFunc
+
+    } = filterProps;
 
     const zeroingDel = () => {
 
-        setFilterComp(false)
-        setFilterStart('')
-        setFilterEnd('')
+        setFilterComp(false)//скрываем окно фильтра
+        setFilterStart('')//обнуляем значения фильтра
+        setFilterEnd('')//обнуляем значения фильтра
+
+
 
         if (defaultDescending) {
-
 
             sortReception()
 
         } else {
 
             getReception()
+
         }
 
 
@@ -49,22 +53,24 @@ const Filter = ({
 
     }
 
-    useEffect(() =>{
-        if(filterHidden){
+    useEffect(() => {
+
+        if (filterHidden) {
             setFilterComp(true)
         }
-    },[filterHidden])
+        
+    }, [filterHidden])
 
-    useEffect(() =>{
-        if(filterComp){
+    useEffect(() => {
+        if (filterComp) {
             setFilterHidden(false)
         }
-    },[filterComp])
-    
-    
-    return(
+    }, [filterComp])
+
+
+    return (
         <>
-        {filterComp &&
+            {filterComp &&
                 <div className="filterhidden">
                     <div className="filtermain">
                         <div className='blockfilter1' >
@@ -75,17 +81,17 @@ const Filter = ({
                             <p>по:</p>
                             <input type="date" value={filterEnd} onChange={(e) => setFilterEnd(e.target.value)} />
                         </div>
-                        <button onClick={() => setClick(true)} >Фильтровать</button>
+                        <button onClick={() => filterFunc()} >Фильтровать</button>
                         <img src={delFilter} alt="no image" onClick={() => zeroingDel()} />
                     </div>
                 </div>
             }
         </>
-        
-        
-        
+
+
+
     )
-    
+
 }
 
 

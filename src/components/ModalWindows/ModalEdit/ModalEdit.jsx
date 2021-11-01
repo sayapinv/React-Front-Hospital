@@ -7,7 +7,7 @@ import axios from 'axios';
 
 
 
-const ModalEdit = (props) => {
+const ModalEdit = ({modalEdit}) => {
 
     const {
 
@@ -23,9 +23,12 @@ const ModalEdit = (props) => {
         setComp,
         idState,
         numState,
-        setReception
+        setReception,
+        setFilterComp,
+        setDefaultDescending,
+        setReceptionDef
         
-    } = props
+    } = modalEdit;
 
     const saveEdit = async () => {
 
@@ -41,7 +44,9 @@ const ModalEdit = (props) => {
 
         }).then(res => {
 
-            setReception(res.data.data);
+            setReceptionDef(res.data.data)
+            setFilterComp('')
+            setDefaultDescending('')
             setEdit(false)
 
         })
