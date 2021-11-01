@@ -5,17 +5,16 @@ import Main from './components/Main';
 
 
 
+import {
 
-import { 
   Switch, 
   Route, 
   Redirect
+
 } from 'react-router-dom';
 
 
 const App = () => {
-  
-
 
   return (
     
