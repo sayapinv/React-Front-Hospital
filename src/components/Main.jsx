@@ -17,7 +17,6 @@ const Main = () => {
 
     const [reception, setReception] = useState([]);//коллекция приемов приходящаяя с back
     const [sortBy, setSortBy] = useState('');// Селект сортировки по названию (имя,врач,жалобы)
-    
     const [sortDescending, setSortDescending] = useState('');//Селект сортировки по возрастанию , убыванию
     const [defaultDescending, setDefaultDescending] = useState('');// Значение по умолчанию второго селекта "по возрастанию"
 
@@ -55,38 +54,38 @@ const Main = () => {
 
     }
 
-    // const sortReception = () => {//сортировка 
+    const sortReception = () => {//сортировка 
 
-    //     let copyCollection = receptionDef.concat();
+        let copyCollection = receptionDef.concat();
 
-    //     if (sortBy) {
+        if (sortBy) {
 
-    //         if (sortBy !== 'none') {
+            if (sortBy !== 'none') {
 
-    //             const withFilter = copyCollection.sort((a, b) => { return a[sortBy] > b[sortBy] ? 1 : -1 })
+                const withFilter = copyCollection.sort((a, b) => { return a[sortBy] > b[sortBy] ? 1 : -1 })
 
-    //             setReception(withFilter)
+                setReception(withFilter)
 
-    //             if (sortDescending !== 'inc') {
-    //                 setReception(withFilter.reverse())
-    //             }
+                if (sortDescending !== 'inc') {
+                    setReception(withFilter.reverse())
+                }
 
-    //         } else {
+            } else {
 
-    //             getReception()
-    //             setDefaultDescending('')
-    //             if (!filterHidden) {
-    //                 filterFunc()
-    //             }
-
-
-    //         }
-
-    //     }
+                getReception()
+                setDefaultDescending('')
+                if (!filterHidden) {
+                    filterFunc()
+                }
 
 
+            }
 
-    // }
+        }
+
+
+
+    }
 
 
 
@@ -98,6 +97,7 @@ const Main = () => {
 
             
             setReceptionDef(res.data.data)
+            setReception(res.data.data)
 
 
         })
@@ -110,91 +110,76 @@ const Main = () => {
 
 
 
-    useEffect(() =>{
-        console.log(sortBy)
-        let updatedArray = receptionDef.concat()
-        if(sortBy!=='' && sortBy!=='none'){
-            console.log('вход')
+
+
+
+
+
+
+    useEffect(() => {
+
+        if (sortBy && sortDescending) {//функция сортировки срабатывает если оба селекта сортировки true
+            sortReception()
         }
-    },[receptionDef])
 
+    }, [sortBy])
 
-    // useEffect(() => {
-    //     let updatedArray = [...receptionDef];
-    //     if (sortBy) {
-    //         updatedArray = sortReception(updatedArray)
-    //     }
-    //     if (filterComp) {
-    //         updatedArray = filterFunc(updatedArray)
-    //     }
-    //     setReception(updatedArray)
-    // }, [receptionDef])
+    useEffect(() => {
 
+        if (sortBy && sortDescending) {//функция сортировки срабатывает если оба селекта сортировки true
 
-    // useEffect(() => {
+            sortReception()
 
-    //     if (sortBy && sortDescending) {//функция сортировки срабатывает если оба селекта сортировки true
-    //         sortReception()
-    //     }
+        }
 
-    // }, [sortBy])
-
-    // useEffect(() => {
-
-    //     if (sortBy && sortDescending) {//функция сортировки срабатывает если оба селекта сортировки true
-
-    //         sortReception()
-
-    //     }
-
-    // }, [sortDescending])
+    }, [sortDescending])
 
 
 
-    // const filterFunc = () => {/////////////фильтр
+    const filterFunc = () => {/////////////фильтр
 
 
-    //     if (filterStart || filterEnd) {//если одно из полей заполнено
+        if (filterStart || filterEnd) {//если одно из полей заполнено
 
-    //         const newArr = [];
+            const newArr = [];
 
-    //         const copyCollection = reception.concat()
+            const copyCollection = reception.concat()
 
-    //         copyCollection.forEach(item => {
+            copyCollection.forEach(item => {
 
-    //             if (item.date >= filterStart + "T00:00:00.000Z") {
-    //                 if (!filterEnd) {
-    //                     newArr.push(item)
-    //                 } else {
-    //                     if (item.date <= filterEnd + "T00:00:00.000Z") {
-    //                         newArr.push(item)
-    //                     }
-    //                 }
-
-
-    //             }
-    //             if (!filterStart) {
-
-    //                 if (item.date <= filterEnd + "T00:00:00.000Z") {
-    //                     newArr.push(item)
-    //                 }
-
-    //             }
-
-    //         })
-
-    //         if (newArr.length > 0) {
-    //             setReception(newArr)
-    //         }
+                if (item.date >= filterStart + "T00:00:00.000Z") {
+                    if (!filterEnd) {
+                        newArr.push(item)
+                    } else {
+                        if (item.date <= filterEnd + "T00:00:00.000Z") {
+                            newArr.push(item)
+                        }
+                    }
 
 
+                }
+                if (!filterStart) {
 
-    //     }
+                    if (item.date <= filterEnd + "T00:00:00.000Z") {
+                        newArr.push(item)
+                    }
+
+                }
+
+            })
+
+            if (newArr.length > 0) {
+                setReception(newArr)
+            }
+
+
+
+        }
 
 
 
 
-    // }
+    }
 
     const createProps = {
 

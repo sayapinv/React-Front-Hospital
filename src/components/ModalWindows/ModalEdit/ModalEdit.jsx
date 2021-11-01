@@ -44,6 +44,7 @@ const ModalEdit = ({modalEdit}) => {
 
         }).then(res => {
 
+            setReception(res.data.data)
             setReceptionDef(res.data.data)
             setFilterComp('')
             setDefaultDescending('')

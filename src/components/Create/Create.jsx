@@ -40,7 +40,7 @@ const Create = ({createProps}) => {
                 setCreateComplaint('')
                 setFilterComp('')
                 setDefaultDescending('')
-                
+                setReception(res.data.data)
                 setReceptionDef(res.data.data)
 
             })
