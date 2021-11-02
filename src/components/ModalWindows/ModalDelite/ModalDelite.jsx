@@ -13,12 +13,10 @@ const ModalDelite = ({modalDelite}) => {
 
         idState,
         numState,
-        setReception,
         setDel,
         button_del,
-        setFilterComp,
-        setDefaultDescending,
-        setReceptionDef
+        setReceptionDef,
+        processingFunction
 
         
     } = modalDelite;
@@ -27,11 +25,11 @@ const ModalDelite = ({modalDelite}) => {
 
         await axios.delete(`http://localhost:8000/deleteReception?id=${idState}&&number=${numState}`).then(res => {
 
-            setReception(res.data.data)
-            setReceptionDef(res.data.data)
-            setFilterComp('')
-            setDefaultDescending('')
+
+            
             setDel(false)
+            setReceptionDef(res.data.data)
+            processingFunction()
             
 
         })

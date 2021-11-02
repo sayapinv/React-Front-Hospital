@@ -2,7 +2,7 @@ import './Table.css'
 import del from './image/delete_outline-24px 1.svg'
 import edit from './image/edit-24px 1.svg'
 import moment from 'moment'
-import { useEffect } from 'react'
+
 
 
 

@@ -23,10 +23,8 @@ const ModalEdit = ({modalEdit}) => {
         setComp,
         idState,
         numState,
-        setReception,
-        setFilterComp,
-        setDefaultDescending,
-        setReceptionDef
+        setReceptionDef,
+        processingFunction
         
     } = modalEdit;
 
@@ -44,11 +42,9 @@ const ModalEdit = ({modalEdit}) => {
 
         }).then(res => {
 
-            setReception(res.data.data)
-            setReceptionDef(res.data.data)
-            setFilterComp('')
-            setDefaultDescending('')
             setEdit(false)
+            setReceptionDef(res.data.data)
+            processingFunction()
 
         })
 

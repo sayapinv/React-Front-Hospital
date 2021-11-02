@@ -11,9 +11,15 @@ import create from '../components/Filter/image/Vector.svg'
 import { useHistory } from 'react-router-dom';
 
 
+
 const Main = () => {
 
     let history = useHistory();
+
+    const token = localStorage.getItem('token')
+    if (!token) {
+        history.goBack()
+    }
 
     const [reception, setReception] = useState([]);//коллекция приемов приходящаяя с back
     const [sortBy, setSortBy] = useState('');// Селект сортировки по названию (имя,врач,жалобы)
@@ -23,12 +29,13 @@ const Main = () => {
     const [filterStart, setFilterStart] = useState('');//для фильтра первая дата "c"
     const [filterEnd, setFilterEnd] = useState('');//для фильтра вторая дата "по"
 
+
     const [receptionDef, setReceptionDef] = useState([]);//дефолтные значения приходящие с сервера
 
     const [filterHidden, setFilterHidden] = useState(false)
     const [filterComp, setFilterComp] = useState(false);
 
-    
+
     const [idState, setIdState] = useState('');//сюда записывается id элемента который нужно удалить или отредактировать
     const [numState, setNumState] = useState('');//сюда записывается number элемента который нужно удалить или отредактировать
     const [button_del, setDel] = useState(false);//модальное окно удаления вылазит если true
@@ -42,21 +49,45 @@ const Main = () => {
     const [date, setDate] = useState('');
     const [complaint, setComp] = useState('');
 
-   
-    const token = localStorage.getItem('token')
-    if(!token){
-        history.goBack()
+
+    
+
+    const getReception = async () => {//получение приемов
+
+        await axios.get(`http://localhost:8000/getreceptions?token=${localStorage.token}`).then(res => {
+
+            setReceptionDef(res.data.data)
+            setReception(res.data.data)
+
+        })
     }
 
-    const twoFunc = () => {
+
+    useEffect(() => {//следим за получением приемов
+
+        getReception()
+
+    }, [])
+
+    useEffect(() => {//следим за получением приемов
+
+        processingFunction()
+
+    }, [receptionDef])
+
+
+
+
+
+    const twoFunc = () => {//при нажатии на кнопку + выезжает скрытое меню
 
         setFilterHidden(true)
 
     }
 
-    const sortReception = () => {//сортировка 
+    const sortReception = (array) => { //сортировка 
 
-        let copyCollection = receptionDef.concat();
+        let copyCollection = array;
 
         if (sortBy) {
 
@@ -64,89 +95,53 @@ const Main = () => {
 
                 const withFilter = copyCollection.sort((a, b) => { return a[sortBy] > b[sortBy] ? 1 : -1 })
 
-                setReception(withFilter)
+                if (sortDescending === 'dec') {
 
-                if (sortDescending !== 'inc') {
-                    setReception(withFilter.reverse())
+                    withFilter.reverse()
+
                 }
 
-            } else {
-
-                getReception()
-                setDefaultDescending('')
-                if (!filterHidden) {
-                    filterFunc()
-                }
-
+                return withFilter
 
             }
 
-        }
+            return array
 
+        }
 
 
     }
 
 
-
-
-    const getReception = async () => {//получение приемов
-
-        await axios.get(`http://localhost:8000/getreceptions?token=${localStorage.token}`).then(res => {
-
-
-            
-            setReceptionDef(res.data.data)
-            setReception(res.data.data)
-
-
-        })
+    const processingFunction = () => {//вход в функцию осуществляется если выбран селект сортировать по или направление
+        let newArray = receptionDef.concat()
+        if (sortBy && sortDescending) {
+            newArray = sortReception(newArray);
+        }
+        setReception(newArray)
     }
 
 
-    useEffect(() => {//следим за получением приемов
-        getReception()
-    }, [])
+    useEffect(() => {//функция следит за сортировать по
 
-
-
-
-
-
-
-
-
-    useEffect(() => {
-
-        if (sortBy && sortDescending) {//функция сортировки срабатывает если оба селекта сортировки true
-            sortReception()
-        }
+        processingFunction()
 
     }, [sortBy])
 
-    useEffect(() => {
+    useEffect(() => {//функция следит за изменением направления
 
-        if (sortBy && sortDescending) {//функция сортировки срабатывает если оба селекта сортировки true
-
-            sortReception()
-
-        }
+        processingFunction()
 
     }, [sortDescending])
 
 
 
-    const filterFunc = () => {/////////////фильтр
+    const filterFunc = (array) => {//фильтр
 
-
-        if (filterStart || filterEnd) {//если одно из полей заполнено
-
-            const newArr = [];
-
-            const copyCollection = reception.concat()
-
+        const newArr = [];
+        if (filterStart || filterEnd) {
+            const copyCollection = array
             copyCollection.forEach(item => {
-
                 if (item.date >= filterStart + "T00:00:00.000Z") {
                     if (!filterEnd) {
                         newArr.push(item)
@@ -155,75 +150,48 @@ const Main = () => {
                             newArr.push(item)
                         }
                     }
-
-
                 }
-                if (!filterStart) {
 
+                if (!filterStart) {
                     if (item.date <= filterEnd + "T00:00:00.000Z") {
                         newArr.push(item)
                     }
-
                 }
-
             })
 
-            if (newArr.length > 0) {
-                setReception(newArr)
-            }
-
-
-
+            return newArr
         }
-
-
-
-
     }
 
     const createProps = {
 
-        setReception: setReception,
-        setFilterComp: setFilterComp,
-        setDefaultDescending: setDefaultDescending,
-        setReceptionDef:setReceptionDef
+        setReceptionDef: setReceptionDef,
+        processingFunction: processingFunction
 
     }
 
     const sortingProps = {
-
         setSortBy: setSortBy,
         setSortDescending: setSortDescending,
         defaultDescending: defaultDescending,
-        setDefaultDescending: setDefaultDescending,
-        filterStart: filterStart,
-        filterEnd: filterEnd
-
+        setDefaultDescending: setDefaultDescending
     }
 
     const filterProps = {
-
         setFilterComp: setFilterComp,
         filterComp: filterComp,
         filterHidden: filterHidden,
         setFilterHidden: setFilterHidden,
-        filterStart: filterStart,
         setFilterStart: setFilterStart,
-        filterEnd: filterEnd,
         setFilterEnd: setFilterEnd,
-        defaultDescending: defaultDescending,
-        // sortReception: sortReception,
-        getReception: getReception,
-        // filterFunc: filterFunc
-
+        processingFunction: processingFunction
     }
 
     const tableProps = {
 
-        reception: reception,
+        reception: (filterStart || filterEnd) ? filterFunc(reception) : reception,
         setIdState: setIdState,
         setNumState: setNumState,
-        button_edit: button_edit,
         setEdit: setEdit,
         setName: setName,
         setDoctor: setDoctor,
@@ -247,30 +215,21 @@ const Main = () => {
         setComp: setComp,
         idState: idState,
         numState: numState,
-        setReception: setReception,
-        setFilterComp: setFilterComp,
-        setDefaultDescending: setDefaultDescending,
-        setReceptionDef:setReceptionDef
+        setReceptionDef: setReceptionDef,
+        processingFunction: processingFunction
 
     }
 
     const modalDelite = {
 
-        setFilterComp:setFilterComp,
-        setDefaultDescending:setDefaultDescending,
-        idState:idState,
-        setIdState:setIdState,
-        numState:numState,
-        setNumState:setNumState,
-        setReception:setReception,
-        setDel:setDel,
-        button_del:button_del,
-        setReceptionDef:setReceptionDef
+        idState: idState,
+        numState: numState,
+        setDel: setDel,
+        button_del: button_del,
+        setReceptionDef: setReceptionDef,
+        processingFunction: processingFunction
 
     }
-
-
-
 
     return (
         <>
@@ -289,18 +248,13 @@ const Main = () => {
             </div>
             <Filter filterProps={filterProps} />
             <Table tableProps={tableProps} />
-            <ModalEdit modalEdit={modalEdit}/>
-            <ModalDelite modalDelite={modalDelite}/>
+            <ModalEdit modalEdit={modalEdit} />
+            <ModalDelite modalDelite={modalDelite} />
 
         </>
 
     )
 
 }
-
-
-
-
-
 
 export default Main;
