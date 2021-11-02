@@ -70,6 +70,60 @@
 
 }
 
+.filtermain button:hover{
+
+    width: 208px;
+    height: 40px;
+    left: 633px;
+    top: 354px;
+
+    background: #f7f7f7;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    cursor: pointer;
+    /* identical to box height */
+
+
+    color: #000000;
+
+    margin-left: 40px;
+
+}
+
+.filtermain button:active{
+
+    width: 208px;
+    height: 40px;
+    left: 633px;
+    top: 354px;
+
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    cursor: pointer;
+
+
+
+    color: #000000;
+
+    margin-left: 40px;
+
+}
+
 .blockfilter1{
     display: flex;
     align-items: center;
@@ -117,7 +171,7 @@
     font-size: 18px;
     line-height: 21px;
     margin-right: 8px;
-    /* identical to box height */
+
     
     
     color: #000000;
@@ -130,7 +184,7 @@
     font-size: 18px;
     line-height: 21px;
     margin-right: 8px;
-    /* identical to box height */
+
     
     
     color: #000000;

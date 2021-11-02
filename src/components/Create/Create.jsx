@@ -8,10 +8,8 @@ const Create = ({createProps}) => {
 
     const {
 
-        setFilterComp,
-        setDefaultDescending,
-        setReception,
-        setReceptionDef
+        setReceptionDef,
+        processingFunction
 
     } = createProps;
 
@@ -38,10 +36,9 @@ const Create = ({createProps}) => {
                 setCreateDoctor('')
                 setCreateDate('')
                 setCreateComplaint('')
-                setFilterComp('')
-                setDefaultDescending('')
-                setReception(res.data.data)
                 setReceptionDef(res.data.data)
+                processingFunction()
+
 
             })
 

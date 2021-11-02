@@ -1,6 +1,6 @@
 
 import './Filter.css'
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import delFilter from '..//Filter/image/delitefilter.svg'
 
 
@@ -11,45 +11,31 @@ import delFilter from '..//Filter/image/delitefilter.svg'
 
 const Filter = ({ filterProps }) => {
 
+    const [initialValueStart, setInitialValueStart] = useState('');
+    const [initialValueEnd, setInitialValueEnd] = useState('');
+
     const {
 
         setFilterComp,
         filterComp,
         filterHidden,
         setFilterHidden,
-        filterStart,
         setFilterStart,
-        filterEnd,
         setFilterEnd,
-        defaultDescending,
-        sortReception,
-        getReception,
-        filterFunc
+        processingFunction,
+
 
     } = filterProps;
 
     const zeroingDel = () => {
 
-        setFilterComp(false)//скрываем окно фильтра
+        
         setFilterStart('')//обнуляем значения фильтра
         setFilterEnd('')//обнуляем значения фильтра
-
-
-
-        if (defaultDescending) {
-
-            sortReception()
-
-        } else {
-
-            getReception()
-
-        }
-
-
-
-
-
+        setInitialValueStart('')//обнуляем значения фильтра
+        setInitialValueEnd('')//обнуляем значения фильтра
+        setFilterComp(false)//скрываем окно фильтра
+        processingFunction()
 
     }
 
@@ -62,10 +48,20 @@ const Filter = ({ filterProps }) => {
     }, [filterHidden])
 
     useEffect(() => {
+
         if (filterComp) {
             setFilterHidden(false)
         }
+
     }, [filterComp])
+
+    const func = () =>{
+
+        setFilterStart(initialValueStart)
+        setFilterEnd(initialValueEnd)
+        processingFunction()
+
+    }
 
 
     return (
@@ -75,13 +71,13 @@ const Filter = ({ filterProps }) => {
                     <div className="filtermain">
                         <div className='blockfilter1' >
                             <p>c:</p>
-                            <input type="date" value={filterStart} onChange={(e) => setFilterStart(e.target.value)} />
+                            <input type="date" value={initialValueStart} onChange={(e) => setInitialValueStart(e.target.value)} />
                         </div>
                         <div className='blockfilter2'>
                             <p>по:</p>
-                            <input type="date" value={filterEnd} onChange={(e) => setFilterEnd(e.target.value)} />
+                            <input type="date" value={initialValueEnd} onChange={(e) => setInitialValueEnd(e.target.value)} />
                         </div>
-                        <button onClick={() => filterFunc()} >Фильтровать</button>
+                        <button onClick={() => func()} >Фильтровать</button>
                         <img src={delFilter} alt="no image" onClick={() => zeroingDel()} />
                     </div>
                 </div>
